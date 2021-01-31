@@ -25,7 +25,11 @@ export const AddMenu = () => {
             price: menu.price
         };
 
-        axios.post(`${baseURL}/menu/`, data)
+        axios.post(`${baseURL}/menu/`, data,{
+          headers: {
+            headers
+          }
+        })
         .then(
             response => {
                 setMenu({
@@ -53,7 +57,12 @@ export const AddMenu = () => {
         <div className="submit-form">
       {submitted ? (
         <div>
-          <h4>You submitted successfully!</h4>
+          <div className="alert alert-success alert-dismissible fade show" role="alert">
+                        Menu Added!
+                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
           <button className="btn btn-success" onClick={newMenu}>
             Add
           </button>
@@ -69,7 +78,7 @@ export const AddMenu = () => {
               required
               value={menu.name}
               onChange={handleMenuChange}
-              name="Name"
+              name="name"
             />
           </div>
 
@@ -95,7 +104,7 @@ export const AddMenu = () => {
               required
               value={menu.price}
               onChange={handleMenuChange}
-              name="Price"
+              name="price"
             />
           </div>
 

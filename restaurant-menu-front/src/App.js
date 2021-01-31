@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route, Link } from "react-router-dom";
 
 import {AddMenu} from "./components/AddMenu";
+import {MenuList} from "./components/MenuList";
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
           </li>
         </div>
       </nav>
+
+      <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-4 m-4">
+            <MenuList />
+            </div>
+          </div>
+      </div>
 
       <div className="container mt-3">
         <Switch>
