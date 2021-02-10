@@ -2,10 +2,9 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route, Link } from "react-router-dom";
 
-import {AddMenu} from "./components/AddMenu";
-import {MenuList} from "./components/MenuList";
-import {UpdateMenu} from "./components/UpdateMenu";
-
+import { AddMenu } from "./components/AddMenu";
+import { MenuList } from "./components/MenuList";
+import { UpdateMenu } from "./components/UpdateMenu";
 
 function App() {
   return (
@@ -15,11 +14,6 @@ function App() {
           Restaurant Menu
         </a>
         <div className="navbar-nav mr-auto">
-          {/* <li className="nav-item">
-            <Link to={"/menus"} className="nav-link">
-              Menu
-            </Link>
-          </li> */}
           <li className="nav-item">
             <Link exact to={"/add/"} className="nav-link">
               Add
@@ -28,10 +22,9 @@ function App() {
         </div>
       </nav>
 
-
       <div className="container m-10">
         <Switch>
-          <Route exact path={["/", "/menus"]} component={MenuList} /> 
+          <Route exact path={["/", "/menus"]} component={MenuList} />
           <Route exact path="/add/" component={AddMenu} />
           <Route path="/menu/:id/update/" component={UpdateMenu} />
         </Switch>
