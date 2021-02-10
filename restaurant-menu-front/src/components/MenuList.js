@@ -1,9 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect, useRef} from "react";
 import {baseURL, headers} from "./../services/menu.service";
+import { useHistory } from "react-router-dom";
+import { UpdateMenu } from "./UpdateMenu";
+
 
 export const MenuList = () => {
     const [menus, setMenus] = useState([]);
+    const history = useHistory();
     const countRef = useRef(0);
 
     
@@ -48,6 +52,9 @@ export const MenuList = () => {
       ) 
     };
 
+    const handleUpdateClick = (id) => {
+        history.push(`/menu/${id}/update/`);
+    }
     return (
         <div className="row justify-content-center">
 
@@ -72,7 +79,7 @@ export const MenuList = () => {
                         </div>
                         <div classNameName="card-footer">
                             <div className="btn-group justify-content-around w-75 mb-1 " data-toggle="buttons">
-                                <span><button className="btn btn-info">Update</button></span>
+                                <span><button className="btn btn-info" onClick={() => handleUpdateClick(menu.id)}>Update</button></span>
                                 <span><button className="btn btn-danger" onClick={() => deleteMenu(menu.id)}>Delete</button></span>
                             </div>
                         </div>

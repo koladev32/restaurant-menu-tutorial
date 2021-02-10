@@ -4,6 +4,8 @@ import { Switch, Route, Link } from "react-router-dom";
 
 import {AddMenu} from "./components/AddMenu";
 import {MenuList} from "./components/MenuList";
+import {UpdateMenu} from "./components/UpdateMenu";
+
 
 function App() {
   return (
@@ -31,7 +33,7 @@ function App() {
         <Switch>
           <Route exact path={["/", "/menus"]} component={MenuList} /> 
           <Route exact path="/add/" component={AddMenu} />
-          {/* <Route path="/tutorials/:id" component={Tutorial} /> */}
+          <Route path="/menu/:id/update/" component={UpdateMenu} />
         </Switch>
       </div>
     </div>
