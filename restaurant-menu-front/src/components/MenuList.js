@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import { baseURL, headers } from "./../services/menu.service";
 import { useHistory } from "react-router-dom";
-import { UpdateMenu } from "./UpdateMenu";
 
 export const MenuList = () => {
   const [menus, setMenus] = useState([]);
