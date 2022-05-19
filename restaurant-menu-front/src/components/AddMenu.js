@@ -114,7 +114,11 @@ export const AddMenu = () => {
             />
           </div>
 
-          <button onClick={submitMenu} className="btn btn-success">
+          <button
+            type="submit"
+            onClick={submitMenu}
+            className="btn btn-success mt-2"
+          >
             Submit
           </button>
         </div>
