@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from menu.models import Menu
-from menu.serializers import MenuSerializer
+from .models import Menu
+from .serializers import MenuSerializer
 
 
 class MenuViewSet(viewsets.ModelViewSet):
