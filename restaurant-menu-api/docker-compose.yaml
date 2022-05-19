@@ -2,15 +2,13 @@ version: '3.9'
 services:
   api:
     container_name: menu_api
-    build:
-      context: .
-      dockerfile: restaurant-menu-api/Dockerfile
+    build: .
     restart: always
     env_file: .env
     ports:
       - "8000:8000"
     command: >
       sh -c " python manage.py migrate &&
-          gunicorn CoreRoot.wsgi:application --bind 0.0.0.0:8000"
+          gunicorn restaurant.wsgi:application --bind 0.0.0.0:8000"
     volumes:
      - .:/app
