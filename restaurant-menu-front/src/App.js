@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Switch, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 import { AddMenu } from "./components/AddMenu";
 import { MenuList } from "./components/MenuList";
@@ -15,19 +15,19 @@ function App() {
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link exact to={"/add/"} className="nav-link">
-              Add
+            <Link to={"/add/"} className="nav-link">
+              Add a menu
             </Link>
           </li>
         </div>
       </nav>
 
       <div className="container m-10">
-        <Switch>
-          <Route exact path={["/", "/menus"]} component={MenuList} />
-          <Route exact path="/add/" component={AddMenu} />
-          <Route path="/menu/:id/update/" component={UpdateMenu} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<MenuList />} />
+          <Route path="/add/" element={<AddMenu />} />
+          <Route path="/menu/:id/update/" element={<UpdateMenu />} />
+        </Routes>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import { baseURL, headers } from "./../services/menu.service";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const MenuList = () => {
   const [menus, setMenus] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
   const countRef = useRef(0);
 
   const [deleted, setDeleted] = useState(false);
@@ -47,7 +47,7 @@ export const MenuList = () => {
   };
 
   const handleUpdateClick = (id) => {
-    history.push(`/menu/${id}/update/`);
+    navigate(`/menu/${id}/update/`);
   };
   return (
     <div className="row justify-content-center">
