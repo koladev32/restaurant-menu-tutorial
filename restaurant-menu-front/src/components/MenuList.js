@@ -1,18 +1,13 @@
 import axios from "axios";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { baseURL, headers } from "./../services/menu.service";
 import { useNavigate } from "react-router-dom";
 
 export const MenuList = () => {
   const [menus, setMenus] = useState([]);
   const navigate = useNavigate();
-  const countRef = useRef(0);
 
   const [deleted, setDeleted] = useState(false);
-
-  useEffect(() => {
-    retrieveAllMenus();
-  }, [countRef]);
 
   const retrieveAllMenus = () => {
     axios
@@ -46,6 +41,11 @@ export const MenuList = () => {
       });
   };
 
+
+  useEffect(() => {
+    retrieveAllMenus();
+  }, [retrieveAllMenus]);
+
   const handleUpdateClick = (id) => {
     navigate(`/menu/${id}/update/`);
   };
@@ -70,14 +70,14 @@ export const MenuList = () => {
         )}
 
         {menus &&
-          menus.map((menu, index) => (
-            <div className="card my-3 w-25 mx-auto">
+          menus.map((menu) => (
+            <div key={menu.id} className="card my-3 w-25 mx-auto">
               <div className="card-body">
                 <h2 className="card-title font-weight-bold">{menu.name}</h2>
                 <h4 className="card-subtitle mb-2">{menu.price}</h4>
                 <p className="card-text">{menu.description}</p>
               </div>
-              <div classNameName="card-footer">
+              <div className="card-footer">
                 <div
                   className="btn-group justify-content-around w-75 mb-1 "
                   data-toggle="buttons"

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { baseURL, headers } from "./../services/menu.service";
 
@@ -15,11 +15,10 @@ export const UpdateMenu = () => {
 
   const [currentMenu, setCurrentMenu] = useState(initialMenuState);
   const [submitted, setSubmitted] = useState(false);
-  const countRef = useRef(0);
 
   useEffect(() => {
     retrieveMenu();
-  }, [countRef]);
+  }, []);
 
   const handleMenuChange = (e) => {
     const { name, value } = e.target;
