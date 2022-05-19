@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 
 
 # CORS HEADERS
-CORS_ALLOW_ALL_ORIGINS = [
-    '127.0.0.1:3000',
-    'localhost:3000'
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:3000',
+    'http://localhost:3000'
 ]
