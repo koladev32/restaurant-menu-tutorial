@@ -5,11 +5,20 @@ article concerning this code here on my [blog](https://koladev.xyz/posts/django-
 
 ## Starting with Docker
 
-Make sure you have Docker installed on your machine. And accord execution permissions to the `docker.run.sh` script.
+Make sure you have Docker installed on your machine. And accord execution permissions to the `docker-run.sh` script.
+
+After that, create a `.env` file in the `restaurant-menu-api` directory with the following content:
 
 ```bash
-sudo chmod +x docker.run.sh
-sudo ./docker.run.sh
+SECRET_KEY=<your-secret-key>
+DEBUG=False
+```
+
+After that, run the `docker-run.sh` script.
+
+```bash
+sudo chmod +x docker-run.sh
+sudo ./docker-run.sh
 ```
 
 ## Starting with Django and React
